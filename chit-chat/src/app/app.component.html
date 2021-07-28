@@ -2,26 +2,15 @@
 <div id="background__body"></div>
 <div id="chat__container">
     <!-- Chat sidebar -->
-    <div class="chat__sidebar">
-
-        <div class="chat__sidebar__header"></div>
-
-        <div class="search__bar">
-            <i class="material-icons">search</i>
-
-            <input type="text" placeholder="Search or start new chat">
-        </div>
-
-        <div class="chat__sidebar__content">
-
-            <div class="no__chat">
-                You don't have any conversation yet!
-            </div>
-        </div>
-
-    </div>
+   <chit-chat-side-bar (conversationClicked)="conversationSelected($event)"></chit-chat-side-bar>
     <!-- /Chat sidebar -->
-    <div class="chat"></div>
+    <div class="chat">
+        <div class="no__chat__content" *ngIf="!conversation">
+            <span>No conversation</span>
+        </div>
+
+        <chit-chat-chat-inbox *ngIf="conversation"></chit-chat-chat-inbox>
+    </div>
 </div>
 
 <router-outlet></router-outlet>

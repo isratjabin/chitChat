@@ -1,0 +1,47 @@
+<div class="chat__sidebar">
+    <div class="header__wrapper">
+        <div class="chat__sidebar__header">
+            <div class="avatar__container">
+              <img src="assets/no-profile-pic.png" alt="user" />
+            </div>
+            <div class="actions__container">
+              <img src="assets/statusIcon.svg" alt="user" />
+              <img src="assets/chatIcon.svg" alt="user" />
+              <img src="assets/moreVertIcon.svg" alt="user" />
+            </div>
+          </div>
+        
+          <div class="search__bar">
+            <i class="material-icons">search</i>
+        
+            <input type="text" placeholder="Search or start new chat" />
+          </div>
+    </div>
+
+
+  <div class="chat__sidebar__content">
+    <!-- <div class="no__chat">
+            You don't have any conversation yet!
+        </div> -->
+
+    <ng-container *ngFor="let conversation of conversations" 
+      (click)="conversationClicked.emit(conversation)">
+      <div class="chat__content">
+        <div class="picture">
+          <img src="assets/no-profile-pic.png" alt="user" />
+        </div>
+        <div class="content">
+          <div class="content__header">
+            <div class="name">{{ conversation.name }}</div>
+            <div class="time">{{ conversation.time }}</div>
+          </div>
+          <div class="message">
+            <img *ngIf="!conversation.messageRead" src="assets/doubleTick.svg" alt="user" />
+            <img  *ngIf="conversation.messageRead" src="assets/doubleTickBlue.svg" alt="user" />
+              {{ conversation.message }}
+            </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

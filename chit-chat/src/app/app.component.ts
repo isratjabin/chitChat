@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'chit-chat';
+
+  conversation;
+
+  conversationSelected(conversation) {
+    this.conversation = conversation;
+
+  }
 }
